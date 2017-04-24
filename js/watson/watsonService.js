@@ -12,30 +12,18 @@ var conversation = new ConversationV1({
 var context={};
 var startConvo = function(userId , message, processResponse){
   console.log(context[userId]);
-  conversation.message({
-   input: { text: message },
-  context : context[userId],
-}, function(err , response){
+  conversation.message({input: { text: message },  context : context[userId]}, function(err , response){
       if (err) {
     console.error(err); // something went wrong
-    processReponse(err , null);
+    processResponse(userId , err);
   }
   else {
+    console.log(response);
     context[userId]=response.context;
-  processResponse(null , response);
+    console.log(`Watson response: ${response.output.text}`);
+  processResponse(userId , response);
   }
 });
 
 };
 module.exports.startConvo=startConvo;
-// function getDate(newDate){
-//   var dateString='';
-// dateString += newDate.getFullYear()+ "-";
-//   dateString += (newDate.getMonth() + 1) + "-";
-// dateString += newDate.getDate();
-// return dateString.toString();
-// }
-// /*dateString += (newDate.getMonth() + 1) + "/";
-// dateString += newDate.getDate() + "/";
-// dateString += newDate.getFullYear();
-// */
