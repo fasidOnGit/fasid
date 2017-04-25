@@ -1,11 +1,8 @@
 var xmpp = require('node-xmpp');
 var messageHandler = require("../messageHandler");
 var credentials={
-  // jid: "fasidmpm@gmail.com",
-  //    password: "melapalayam",,
-
-  jid: "kader.fasid@motorolasolutions.com",
-     password: "!@#yangIob03msn",
+  jid: "fasidmpm@gmail.com",
+     password: "melapalayam",
      host: "talk.google.com",
      port: 5222
 
