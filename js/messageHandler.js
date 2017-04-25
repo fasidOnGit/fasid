@@ -7,7 +7,7 @@ module.exports.processMessageToWatson=function(from , msg , processMessageToUser
 			if (watsonResponse.output.action) {
 
 			} else {
-				processMessageToUser(from , JSON.stringify(watsonresponse.output.text.join(), null, 2));
+				processMessageToUser(from , JSON.stringify(watsonResponse.output.text.join(), null, 2));
 			}
 		});
 
